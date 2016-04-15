@@ -1,0 +1,39 @@
+<div class="login-container">
+    <h2>Titan login</h2>
+
+    <form (ngSubmit)="onSubmit(loginForm.valid)" #loginForm="ngForm" class="login-form" novalidate>
+        <div *ngIf="submitted && invalidCredentials"
+             class="form-error-message">
+            The username or password you have entered is incorrect
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="InputEmailAddress">Email</label>
+                    <input type="text" [(ngModel)]="user.email" ngControl="email"
+                           class="form-control" id="InputEmailAddress" #email="ngForm"
+                           placeholder="Email" required>
+                </div>
+                <div [hidden]="email.valid || !submitted" class="alert alert-danger">
+                    Email is required
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="InputPassword">Password</label>
+                    <input type="password" [(ngModel)]="user.password" ngControl="password"
+                           class="form-control" id="InputPassword" #password="ngForm"
+                           placeholder="Password" required>
+                </div>
+                <div [hidden]="password.valid || !submitted" class="alert alert-danger">
+                    Password is required
+                </div>
+            </div>
+
+        </div>
+        <button type="submit" class="btn btn-success">Login</button>
+    </form>
+
+</div>

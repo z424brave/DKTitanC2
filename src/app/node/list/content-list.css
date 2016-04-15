@@ -1,0 +1,25 @@
+.new-content-btn {
+    height: 50px;
+}
+
+.new-content-btn .btn {
+    float: right;
+}
+
+tbody tr {
+    cursor: pointer;
+}
+
+.search-form {
+    padding: 20px 0;
+    margin-bottom: 40px;
+
+}
+
+
+
+@media (min-width: 992px) {
+    .form-inline .form-control {
+        width: 300px;
+    }
+}

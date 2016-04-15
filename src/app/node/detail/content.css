@@ -1,0 +1,14 @@
+tab {
+    padding-top: 30px;
+}
+
+.content-version {
+    font-size: larger;
+    font-style: italic;
+    cursor: pointer;
+
+}
+
+content-editor {
+    overflow: hidden;
+}

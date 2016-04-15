@@ -1,0 +1,83 @@
+<main-menu></main-menu>
+<h1>Content management</h1>
+<div class="new-content-btn">
+    <input class="btn btn-success" type="submit" value="Create new content" (click)="newContent()">
+</div>
+<form (ngSubmit)="search()" #searchForm="ngForm" class="search-form" novalidate>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label for="InputStatus">Status</label>
+                <select class="form-control" id="InputStatus" [(ngModel)]="searchNode.status">
+                    <option *ngFor="#status of statuses" [value]="status" (select)="searchNode.status=$event">{{status}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label for="InputUser">User</label>
+                <select class="form-control" id="InputUser" [(ngModel)]="searchNode.user">
+                    <option *ngFor="#user of users" [value]="user._id" (select)="searchNode.user=$event">{{user.name}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label for="InputType">Type</label>
+                <select class="form-control" id="InputType" [(ngModel)]="searchNode.type">
+                    <option *ngFor="#type of types" [value]="type" (select)="searchNode.type=$event">{{type}}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group tag-select-group">
+                <label>Tags</label>
+                <tag-select [(nodeEmitter)]="nodeEmitter"></tag-select>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div>
+                <label for="InputContains">Title</label>
+                <input type="text" [(ngModel)]="searchNode.contains"
+                       class="form-control" id="InputContains"
+                       placeholder="text">
+            </div>
+        </div>
+    </div>
+    <div class="form-buttons">
+        <button type="submit" class="btn btn-default">Search</button>
+        <button class="btn btn-default" (click)="reset($event)">Reset</button>
+    </div>
+
+</form>
+
+
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Date created</th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Type</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="#node of nodes">
+        <td (click)="onSelect(node)">{{node.created | isoDate: "d mmmm yyyy" }}</td>
+        <td (click)="onSelect(node)">{{node.name}}</td>
+        <td (click)="onSelect(node)">{{node.user.name}}</td>
+        <td (click)="onSelect(node)">{{node.type}}</td>
+        <td class="delete-cell">
+            <i *ngIf="node.user._id === currentUser._id || currentUser.role === 'admin'"
+               (click)="deleteNode($event, node._id)" class="fa fa-minus-square"></i>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+
+

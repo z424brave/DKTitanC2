@@ -1,0 +1,49 @@
+main {
+    margin-top: 50px;
+    padding-top: 30px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    background-color: #0d3349;
+    width: 100vw;
+}
+
+notification-center {
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 60px;
+    width: 500px;
+    z-index: 9999;
+
+}
+
+.form-error-message {
+    color: #c10000;
+    font-size: larger;
+    font-weight: bold;
+}
+
+.form-buttons {
+    margin-top: 20px;
+    float: right;
+}
+
+
+.delete-cell {
+    cursor: default;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.delete-cell i {
+    font-size: large;
+    cursor: pointer;
+}
+
+.delete-cell i:hover {
+    color: #c10000;
+
+}

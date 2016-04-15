@@ -1,0 +1,11 @@
+.nofocus  {
+    border-color: transparent;
+    box-shadow: none;
+}
+
+
+input {
+    font-weight: bold;
+    font-size: larger;
+
+}

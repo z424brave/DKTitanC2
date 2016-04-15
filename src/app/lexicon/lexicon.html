@@ -1,0 +1,59 @@
+<main-menu></main-menu>
+<h1>Lexicon management</h1>
+<div class="row">
+    <div class="col-md-6">
+        <label for="InputLexicon">Select a lexicon</label>
+        <select class="form-control" [(ngModel)]="type"
+                (ngModelChange)="onLexiconSelectChanged($event)" id="InputLexicon">
+            <option *ngFor="#lexicon of lexicons" [value]="lexicon._id">{{lexicon.name}}</option>
+        </select>
+    </div>
+    <div class="col-md-6">
+        <label>&nbsp;</label>
+        <div class="form-inline">
+            <input type="text" [(ngModel)]="newLexicon.name" class="form-control text-input">
+            <button type="submit" class="btn btn-success" (click)="createLexicon()">Create lexicon</button>
+        </div>
+    </div>
+</div>
+<div *ngIf="lexicon._id">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-inline">
+                <span><update-textfield [value]="lexicon"
+                                        (changeEmitter)="onLexiconUpdated($event)"></update-textfield></span>
+                <span *ngIf="confirmDelete">
+                     <button type="submit" class="btn btn-success pull-right" (click)="cancelDelete()">Cancel</button>
+                    <button type="submit" class="btn btn-danger pull-right" (click)="doDeleteLexicon()">Delete lexicon ?
+                    </button>
+
+                </span>
+                <span *ngIf="!confirmDelete">
+                    <button type="submit" class="btn btn-default pull-right" (click)="deleteLexicon()">Delete lexicon
+                    </button>
+                </span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-inline">
+                <input type="text" [(ngModel)]="newTag.name" class="form-control text-input">
+                <button type="submit" class="btn btn-success" (click)="addTag()">Add tag</button>
+            </div>
+        </div>
+    </div>
+    <div class="tag-table">
+        <h3>Tags</h3>
+        <table class="table">
+            <tbody>
+            <tr *ngFor="#tag of tags">
+                <td>
+                    <update-textfield [value]="tag" (changeEmitter)="onTagUpdated($event)"></update-textfield>
+                </td>
+                <td class="delete-cell">
+                    <i (click)="deleteTag(tag._id)" class="fa fa-minus-square"></i>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

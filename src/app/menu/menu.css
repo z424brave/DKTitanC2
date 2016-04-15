@@ -1,0 +1,13 @@
+.user-panel {
+    padding: 5px;
+    float: right;
+    color: white;
+}
+
+.user-info {
+    text-align: center;
+}
+
+.user-links span {
+    cursor: pointer;
+}

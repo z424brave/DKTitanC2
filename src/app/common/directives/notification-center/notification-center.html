@@ -1,0 +1,6 @@
+<alert *ngFor="#notification of notifications;#i = index" [type]="notification.type"
+       [dismissible]="notification.dismissible" [dismissOnTimeout]="notification.dismissOnTimeout"
+       (close)="closeNotification(i)">
+    {{ notification?.msg }}
+</alert>
+

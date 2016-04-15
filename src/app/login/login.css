@@ -1,0 +1,29 @@
+.login-container {
+
+    border: 1px solid #c2c2c2;
+    border-radius: 19px;
+}
+
+.login-container button {
+    float: right;
+    margin-top: 24px;
+}
+
+@media (min-width: 1200px) {
+    .login-container {
+        margin: 30px 180px;
+        padding: 50px 100px 100px 100px;
+
+    }
+
+}
+
+@media (max-width: 1200px) {
+    .login-container {
+        margin: 10%;
+        padding: 5% 10% 20% 10%;
+    }
+
+}
+
+

@@ -1,0 +1,21 @@
+.row {
+    margin-bottom: 20px;
+}
+
+.tag-table {
+
+    max-width: 550px;
+}
+
+.text-input {
+    width: 250px;
+}
+
+.delete-cell {
+    width: 30px;
+
+}
+
+.pull-right {
+    margin-left: 4px;
+}

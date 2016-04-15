@@ -1,0 +1,24 @@
+<h1>User list</h1>
+
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="#user of users | nameSort" (click)="onSelect(user)">
+        <td>{{user.name}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.role}}</td>
+        <td>{{user.status}}</td>
+    </tr>
+    </tbody>
+</table>
+
+<div class="form-buttons">
+    <input class="btn btn-success" type="submit" value="Create User" (click)="newUser()">
+</div>
